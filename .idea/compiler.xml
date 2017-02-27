@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ArchiForum" target="1.8" />
+      <module name="ArchiForum" target="1.5" />
       <module name="spring-boot-sample-web-ui" target="1.8" />
     </bytecodeTargetLevel>
   </component>
