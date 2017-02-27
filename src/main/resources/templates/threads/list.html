@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(title='Threads : View all')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <div th:replace="fragments :: navbar">
+            <h1>Threads : View All</h1>
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>Subject</td>
+                <td>Description</td>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${threads.empty}">
+                    <td colspan="3">No threads!</td>
+                </tr>
+                <tr th:each="thread : ${threads}">
+                    <td th:text="${thread.ThreadID}">1</td>
+                    <td th:text="${thread.Subject}">Subject</td>
+                    <td th:text="${thread.Description}">Description</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
