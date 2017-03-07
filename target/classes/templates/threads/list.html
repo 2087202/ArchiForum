@@ -1,36 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: head(title='Threads : View all')">
-    <title>Threads : View all</title>
-</head>
-<body>
-<div class="container">
-    <div th:replace="fragments :: navbar"></div>
-    <h1>Threads : View all</h1>
-    <div class="container">
-        <div class="pull-right">
-            <a href="form.html" th:href="@{/(form)}">Create Message</a>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head th:replace="fragments/head :: head"></head>
+    <body>
+        <div th:replace="fragments/header :: header"></div>
+        <div class="container">
+            <h1>Wat wilt u doen op dit moment?</h1>
         </div>
-        <table class="table table-bordered table-striped">
-            <thead>
-            <tr>
-                <td>ID</td>
-                <td>Subject</td>
-                <td>Description</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:if="${threads.empty}">
-                <td colspan="3">No threads</td>
-            </tr>
-            <tr th:each="thread : ${threads}">
-                <td th:text="${thread.ThreadID}">1</td>
-                <td th:text="${thread.Subject}">subject</td>
-                <td th:text="${thread.Description}">description</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-</body>
+        <div class="container text-center">
+            <a href="/practice/overview"><button type="button" class="btn btn-primary btn-lg">Fysiopraktijk Overzicht</button></a>
+            <a href="/session/overview"><button type="button" class="btn btn-primary btn-lg">Sessie Overzicht</button></a>
+            <a href="/session/create"><button type="button" class="btn btn-primary btn-lg">Sessie Toevoegen</button></a>
+            <a href="/employee/overview"><button type="button" class="btn btn-primary btn-lg">Personeel Overzicht</button></a>
+            <a href="/employee/add"><button type="button" class="btn btn-primary btn-lg">Personeel Toevoegen</button></a>
+        </div>
+    </body>
 </html>

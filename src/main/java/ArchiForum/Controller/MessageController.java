@@ -37,7 +37,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @author Doo-Hwan Kwak
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping("/message")
 public class MessageController {
 
 	@Autowired

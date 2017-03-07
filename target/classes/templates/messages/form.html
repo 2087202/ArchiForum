@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:replace="fragments :: head(title='Messages : Create')">
-		<title>Messages : Create</title>
-	</head>
+	<head th:replace="fragments/head :: head"></head>
 	<body>
+		<div th:replace="fragments/header :: header"></div>
 		<div class="container">
-			<div th:replace="fragments :: navbar"></div>
 			<h1>Messages : Create</h1>
 			<form id="messageForm" th:action="@{/(form)}" th:object="${message}"
 				action="#" method="post">

@@ -2,15 +2,89 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head th:fragment="head (title)">
 		<title th:text="${title}">Fragments</title>
-		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"
-			href="../../css/bootstrap.min.css" />
+		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../../css/bootstrap.min.css" />
+		<link rel="stylesheet" th:href="@{/js/jquery-3.1.1.js}" href="../../js/jquery-3.1.1.js"/>
+		<link href="../static/css/sticky-footer-navbar.css" th:href="@{/css/sticky-footer-navbar.css}" rel="stylesheet" media="screen" />
+		<link href="../static/css/core.css" th:href="@{/css/core.css}" rel="stylesheet" media="screen" />
+		<link rel="stylesheet" th:href="@{/js/bootstrap.min.js}" href="../../js/bootstrap.min.js"/>
 	</head>
 	<body>
+		<nav th:fragment="navbar" class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand active" href="/"><i class="glyphicon icon-hospital"></i>FysioCenter</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li role="presentation">
+							<a href="/">Home</a>
+						</li>
+						<li role="presentation">
+							<a href="/practice/overview">Fysiopraktijk</a>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sessies<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li class="dropdown-header">Sessies beheren</li>
+								<li role="presentation">
+									<a href="/session/overview">Sessieoverzicht</a>
+								</li>
+								<li role="presentation">
+									<a href="/session/create">Sessie toevoegen</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Personeel<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li class="dropdown-header">Personeel beheren</li>
+								<li role="presentation">
+									<a href="/employee/overview">Personeelsoverzicht</a>
+								</li>
+								<li role="presentation">
+									<a href="/employee/add">Personeel toevoegen</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Info<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li role="presentation">
+									<a href="/logfile" target="_blank">Logfile</a>
+								</li>
+								<li role="presentation">
+									<a href="/health" target="_blank">Health</a>
+								</li>
+								<li role="presentation">
+									<a href="/metrics" target="_blank">Metrics</a>
+								</li>
+								<li role="separator" class="divider"></li>
+								<li class="dropdown-header">Error handling demo</li>
+								<li><a href="/niet-bestaande-pagina">Non-existing page (404)</a></li>
+								<li><a href="/exception">Throw/Catch Exception</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<!--<span th:inline="text"> [[${#httpServletRequest.remoteUser}]]</span>!-->
+						<form th:action="@{/logout}" method="post">
+							<input class="btn btn-danger navbar-btn" type="submit" value="Uitloggen"/>
+						</form>
+					</ul>
+				</div>
+			</div>
+		</nav>
 		<div class="container">
-			<div th:fragment="navbar" class="navbar">
+			<div th:fragment="navba222" class="navbar navbar-inverse navbar-fixed-top">
 				<div class="navbar-inner">
 					<a class="brand" href="http://thymeleaf.org">Thymeleaf</a>
-					<ul class="nav">
+					<ul class="nav navbar-nav">
 						<li><a th:href="@{/}" href="messages.html"> Messages </a></li>
 					</ul>
 				</div>
